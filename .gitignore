@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+db.sqlite3 # Игнорируем базу данных SQLite
+
+# Node.js
+node_modules/
+.env
+build/ # Для продакшн сборки React, если будешь делать
+dist/ # Тоже для сборки
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.parcel-cache/
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# VS Code
+.vscode/
+
+# Media files (если у тебя есть папки для загруженных видео/миниатюр)
+media/

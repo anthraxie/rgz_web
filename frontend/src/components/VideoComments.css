@@ -1,0 +1,230 @@
+/* src/components/VideoComments.css */
+
+/* Переиспользуем переменные цветов из Header.css или определим здесь */
+:root {
+    /* Убедитесь, что эти переменные доступны (импортированы или определены в общем файле) */
+    /* Если нет, скопируйте их сюда из Header.css */
+    --dark-green-bg: #1a241c;
+    --dark-green-accent: #283c2f;
+    --forest-green: #3a5a40;
+    --light-green-accent: #81b29a;
+    --text-light: #e0e0e0;
+    --text-medium: #b0b0b0;
+    --error-red: #e57373;
+}
+
+
+/* Контейнер для всего блока комментариев */
+.video-comments-container {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+
+    /* --- Применяем темную/готическую палитру --- */
+    background-color: var(--dark-green-accent); /* Темно-зеленый фон контейнера */
+    color: var(--text-light); /* Светлый текст */
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Более выраженная тень */
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Возвращаем стандартный или системный шрифт */
+    border: 1px solid var(--forest-green); /* Легкая рамка */
+}
+
+/* Заголовок "Комментарии" */
+.comments-title {
+    text-align: left;
+    color: var(--light-green-accent); /* Светло-зеленый цвет заголовка */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-bottom: 1px solid var(--forest-green); /* Разделитель */
+    padding-bottom: 10px;
+    flex-shrink: 0;
+    text-shadow: 0 0 3px rgba(129, 178, 154, 0.5); /* Легкая тень для заголовка */
+    /* font-family удален */
+}
+
+/* Блок для списка комментариев */
+.comments-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    padding-top: 0;
+
+    /* Стили скроллбара */
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-green-accent) var(--dark-green-accent);
+}
+
+/* Стили для скроллбара в Webkit (Chrome, Safari) */
+.comments-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: var(--dark-green-accent);
+    border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background-color: var(--light-green-accent);
+    border-radius: 10px;
+    border: 2px solid var(--dark-green-accent);
+}
+
+
+/* Стили для отдельного комментария */
+.comment-item {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--forest-green);
+    word-wrap: break-word;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: var(--text-light);
+    padding: 5px 0;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
+
+/* Имя автора */
+.comment-author {
+    color: var(--light-green-accent);
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1em;
+}
+
+/* Текст комментария */
+/* .comment-text { } - font-family удален, будет унаследован */
+
+
+/* Дата и время комментария */
+.comment-timestamp {
+    font-size: 0.75em;
+    color: var(--text-medium);
+    margin-top: 3px;
+    text-align: left;
+    display: block;
+}
+
+/* Сообщение, если комментариев нет */
+.no-comments {
+    text-align: center;
+    color: var(--text-medium);
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* Форма для добавления нового комментария */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid var(--forest-green);
+    flex-shrink: 0;
+}
+
+/* Поле ввода текста комментария */
+.comment-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--forest-green);
+    background-color: var(--dark-green-bg);
+    color: var(--text-light);
+    font-size: 0.95em;
+    box-sizing: border-box;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-textarea:focus {
+    outline: none;
+    border-color: var(--light-green-accent);
+    box-shadow: 0 0 5px var(--light-green-accent);
+}
+
+/* Кнопка отправки */
+.comment-button {
+    padding: 10px 20px;
+    background-color: var(--light-green-accent);
+    color: var(--dark-green-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    align-self: flex-end;
+    transition: background-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Стили для кнопки в отключенном состоянии */
+.comment-button:disabled {
+    background-color: var(--forest-green);
+    color: var(--dark-green-accent);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Эффект наведения на кнопку (если не отключена) */
+.comment-button:hover:not(:disabled) {
+    background-color: var(--forest-green);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Сообщение об ошибке под формой */
+.comment-post-error {
+    color: var(--error-red);
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+/* Сообщение для неавторизованных пользователей */
+.login-prompt {
+    text-align: center;
+    color: var(--text-medium);
+    font-size: 0.95em;
+    padding-top: 15px;
+    border-top: 1px solid var(--forest-green);
+    flex-shrink: 0;
+}
+
+/* Ссылка в сообщении для неавторизованных */
+.login-prompt .login-link {
+    color: var(--light-green-accent);
+    text-decoration: underline;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.login-prompt .login-link:hover {
+     color: var(--forest-green);
+     text-shadow: none;
+}
+
+
+/* Сообщение об ошибке загрузки списка комментариев */
+.comments-error-list {
+    color: var(--error-red);
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Индикатор загрузки комментариев */
+.comments-loading {
+    text-align: center;
+    color: var(--text-medium);
+    font-style: italic;
+    margin-top: 15px;
+}

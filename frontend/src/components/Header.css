@@ -1,0 +1,115 @@
+/* src/components/Header.css */
+
+:root {
+    /* Основные цвета для темной/готической палитры */
+    --dark-green-bg: #1a241c; /* Очень темный зеленый/почти черный из леса */
+    --dark-green-accent: #283c2f; /* Темный зеленый акцент */
+    --forest-green: #3a5a40; /* Более выраженный зеленый из леса */
+    --light-green-accent: #81b29a; /* Светлый приглушенный зеленый для акцентов */
+    --text-light: #e0e0e0; /* Светлый текст для темного фона */
+    --text-medium: #b0b0b0; /* Средний серый для менее важного текста */
+    --text-dark: #333; /* Темный текст (используется редко на темном фоне) */
+    --error-red: #e57373; /* Мягкий красный для ошибок на темном фоне */
+}
+
+
+.header {
+    background-color: var(--dark-green-bg); /* Очень темный зеленый фон шапки */
+    padding: 15px 20px;
+    color: var(--text-light); /* Светлый цвет текста */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Более выраженная тень */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 300px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--forest-green); /* Легкий зеленый разделитель */
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 45px; /* Размер логотипа */
+    margin-right: 15px;
+    display: block;
+    border-radius: 8px; /* Скругление углов логотипа */
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    color: var(--text-light); /* Светлый цвет ссылок */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+}
+
+.nav-link:hover {
+    color: var(--light-green-accent); /* Светло-зеленый при наведении */
+    text-shadow: 0 0 5px var(--light-green-accent);
+}
+
+.logout-button {
+     color: var(--text-light);
+     text-decoration: none;
+     font-size: 16px;
+     font-weight: 600;
+     transition: color 0.3s ease, text-shadow 0.3s ease;
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
+     padding: 0;
+     font: inherit;
+}
+
+.logout-button:hover {
+    color: var(--error-red);
+    text-shadow: 0 0 5px var(--error-red);
+}
+
+
+/* --- Медиа-запросы для адаптивности --- */
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .header-nav {
+        gap: 15px;
+    }
+
+    .nav-link, .logout-button {
+        font-size: 14px;
+    }
+    .header-logo {
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-nav {
+        gap: 10px;
+    }
+     .header-logo {
+        height: 30px;
+    }
+}

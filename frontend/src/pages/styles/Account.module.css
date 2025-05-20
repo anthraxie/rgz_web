@@ -1,0 +1,169 @@
+/* src/pages/styles/Account.module.css */
+
+/* Стили для основного контейнера страницы */
+.container {
+  /* Стили макета для полного охвата и центрирования содержимого */
+  width: 100vw; /* Гарантируем ширину равную ширине окна просмотра */
+  min-height: 100vh; /* Гарантируем минимальную высоту */
+  margin: 0; /* Убираем стандартные внешние отступы */
+  padding: 0; /* Убираем стандартные внутренние отступы */
+  box-sizing: border-box; /* Учитываем padding и border в размере элемента */
+  overflow-x: hidden; /* Скрываем горизонтальный перелив */
+
+  /* Flexbox для расположения содержимого по вертикали и горизонтали */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем блоки по горизонтали */
+  /* justify-content: flex-start; */ /* Контент начинается сверху (по умолчанию) */
+
+  /* Отступ сверху для фиксированной шапки */
+  /* !!! ВАЖНО: Убедитесь, что это значение ТОЧНО соответствует ВЫСОТЕ вашей шапки (Header),
+     включая ее padding и border. Используйте инструменты разработчика браузера, чтобы измерить фактическую высоту шапки. */
+  padding-top: 80px; /* Примерное значение, скорректируйте при необходимости */
+
+  /* Стили фона (можно оставить здесь или перенести в инлайн-стили в компоненте) */
+  /* Эти стили будут переопределены инлайн-стилями компонента для динамического URL изображения */
+  /* backgroundImage: url('./background.jpg'); */
+  /* backgroundSize: cover; */
+  /* backgroundPosition: center; */
+  /* backgroundRepeat: no-repeat; */
+  /* backgroundAttachment: fixed; */
+}
+
+/* Стили для секций профиля и видео */
+.profileSection,
+.videosSection {
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    padding: 20px; /* Внутренние отступы секций */
+    border-radius: 8px; /* Скругленные углы */
+    width: 100%; /* Секции занимают всю доступную ширину родителя */
+    max-width: 800px; /* Ограничиваем максимальную ширину секций */
+    box-sizing: border-box; /* Учитываем padding и border в размере секций */
+}
+
+.profileSection {
+    margin-bottom: 20px; /* Отступ между секциями */
+}
+
+/* Стили для сетки видео */
+.videoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Адаптивная сетка */
+    gap: 20px; /* Расстояние между карточками видео */
+}
+
+/* Стили для карточки видео */
+.videoCard {
+    background-color: #fff; /* Белый фон карточки */
+    border-radius: 8px;
+    overflow: hidden; /* Обрезаем контент, выходящий за границы (например, изображение) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+    display: flex;
+    flex-direction: column; /* Элементы в карточке располагаются вертикально */
+}
+
+/* Стили для миниатюры */
+.thumbnail img {
+    display: block; /* Убираем лишний пробел под изображением */
+    width: 100%; /* Изображение занимает всю ширину контейнера */
+    height: auto; /* Сохраняем пропорции */
+}
+
+/* Стили для информации о видео в карточке */
+.videoInfo {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Позволяет этому блоку занимать все доступное пространство */
+}
+
+.videoInfo h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.videoInfo p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1; /* Позволяет описанию занимать все доступное пространство */
+}
+
+/* Стили для мета-информации (просмотры, дата) */
+.meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Стили для кнопок действий (удалить, смотреть) */
+.actions {
+    display: flex;
+    gap: 10px; /* Расстояние между кнопками */
+    margin-top: auto; /* Прижимает блок действий к низу карточки */
+}
+
+.deleteButton,
+.watchButton {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    display: inline-block; /* Позволяет применять padding и другие блочные стили */
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.deleteButton {
+    background-color: #dc3545; /* Красный */
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+}
+
+.watchButton {
+    background-color: #007bff; /* Синий */
+    color: white;
+    flex-grow: 1; /* Кнопка "Смотреть" растягивается */
+}
+
+.watchButton:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для кнопки загрузки на странице аккаунта */
+.uploadButton {
+    display: inline-block; /* Делаем ссылку блочно-строчной */
+    margin-top: 20px; /* Отступ сверху */
+    padding: 10px 20px;
+    background-color: #28a745; /* Зеленый */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+    background-color: #218838;
+}
+
+/* Стили для сообщений загрузки и ошибки */
+.loading, .error {
+    margin-top: 80px; /* Отступ сверху, чтобы не перекрывалось шапкой */
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.error {
+    color: red;
+}
+
